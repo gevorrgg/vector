@@ -2,8 +2,8 @@
 // Created by user on 5/22/2026.
 //
 
-#ifndef VECTOR_VECTOR_MEMORY_H
-#define VECTOR_VECTOR_MEMORY_H
+#ifndef VECTOR_MEMORY_HPP
+#define VECTOR_MEMORY_HPP
 
 #include <memory>
 
@@ -148,4 +148,4 @@ void move_backward_if_noexcept(It first, It last, T* dest)
     }
 }
 
-#endif //VECTOR_VECTOR_MEMORY_H
+#endif //VECTOR_MEMORY_HPP
