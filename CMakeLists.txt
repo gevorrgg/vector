@@ -31,8 +31,14 @@ install(EXPORT VectorTargets
 
 include(CMakePackageConfigHelpers)
 
+file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/VectorConfig.cmake.in
+    "@PACKAGE_INIT@\n"
+    "include(\"\${CMAKE_CURRENT_LIST_DIR}/VectorTargets.cmake\")\n"
+    "check_required_components(Vector)\n"
+)
+
 configure_package_config_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/VectorConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/VectorConfig.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/VectorConfig.cmake
     INSTALL_DESTINATION lib/cmake/Vector
 )
