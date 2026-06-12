@@ -1,0 +1,43 @@
+name: C++ Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ valgrind
+
+      - name: Configure main project
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install
+
+      - name: Build main project
+        run: cmake --build build
+
+      - name: Install project
+        run: cmake --install build
+
+      - name: Configure tests
+        run: cmake -B build/tests -S tests -DCMAKE_PREFIX_PATH=${{ github.workspace }}/install
+
+      - name: Build tests
+        run: cmake --build build/tests
+
+      - name: Run tests
+        run: ctest --test-dir build/tests --output-on-failure
+
+      - name: Memory check (Valgrind)
+        run: ctest --test-dir build/tests -T memcheck --output-on-failure
+        env:
+          CTEST_MEMORYCHECK_TYPE: Valgrind
+          CTEST_MEMORYCHECK_COMMAND: /usr/bin/valgrind
+          CTEST_MEMORYCHECK_COMMAND_OPTIONS: "--error-exitcode=1 --leak-check=full --show-leak-kinds=all"
