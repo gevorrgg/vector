@@ -1,6 +1,6 @@
 # Vector
 
-A custom C++20 `std::vector`-compatible dynamic array with full allocator support, iterator support, and comprehensive exception safety guarantees.
+A custom C++23 `std::vector`-compatible dynamic array with full allocator support, iterator support, and comprehensive exception safety guarantees.
 
 ## Features
 
@@ -12,7 +12,7 @@ A custom C++20 `std::vector`-compatible dynamic array with full allocator suppor
 
 ## Requirements
 
-- C++20 compiler (GCC 11+, Clang 14+, MSVC 19.29+)
+- C++23 compiler (GCC 11+, Clang 14+, MSVC 19.29+)
 - CMake 3.20+
 - Google Test (fetched automatically via CMake FetchContent)
 
@@ -83,6 +83,29 @@ ctest --test-dir build/tests/unit_tests
 # Exception safety tests only
 ctest --test-dir build/tests/exception_safety_tests
 ```
+
+### Memory checking (Valgrind)
+
+You can run tests under Valgrind using CTest memcheck mode:
+
+```bash
+ctest --test-dir build/tests -T memcheck
+```
+
+This runs all registered tests under Valgrind and reports memory issues such as:
+
+- memory leaks  
+- invalid memory access  
+- use-after-free  
+- heap corruption  
+
+If all tests pass and no errors are reported, memory usage is considered clean under Valgrind.
+
+### Notes
+
+- Valgrind must be installed and available in PATH  
+- Requires CTest integration (`include(CTest)` in CMake)  
+- Slower than normal test execution
 
 ## API Reference
 
