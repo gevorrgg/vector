@@ -1,0 +1,50 @@
+# Build directories
+/build/
+/build-*/
+/out/
+/bin/
+/lib/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/CTestTestfile.cmake
+
+# Generated test and coverage files
+Testing/
+*.gcno
+*.gcda
+*.gcov
+coverage/
+lcov.info
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.user
+*.workspace
+*.code-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Executables and libraries
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# Package managers
+*.lock
+
