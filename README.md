@@ -75,13 +75,13 @@ cmake --build build/tests
 
 ```bash
 # All tests
-ctest --test-dir build
+ctest --test-dir build/tests
 
 # Unit tests only
-./build/tests/unit_tests/unit_tests
+ctest --test-dir build/tests/unit_tests
 
 # Exception safety tests only
-./build/tests/exception_safety_tests/exception_safety_tests
+ctest --test-dir build/tests/exception_safety_tests
 ```
 
 ## API Reference
