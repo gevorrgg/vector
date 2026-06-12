@@ -1,6 +1,6 @@
 # Vector
 
-A custom C++23 `std::vector`-compatible dynamic array with full allocator support, iterator support, and comprehensive exception safety guarantees.
+A custom C++20 `std::vector`-compatible dynamic array with full allocator support, iterator support, and comprehensive exception safety guarantees.
 
 ## Features
 
@@ -12,7 +12,7 @@ A custom C++23 `std::vector`-compatible dynamic array with full allocator suppor
 
 ## Requirements
 
-- C++23 compiler (GCC 11+, Clang 14+, MSVC 19.29+)
+- C++20 compiler (GCC 11+, Clang 14+, MSVC 19.29+)
 - CMake 3.20+
 - Google Test (fetched automatically via CMake FetchContent)
 
