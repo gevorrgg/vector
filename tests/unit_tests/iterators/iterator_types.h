@@ -5,7 +5,7 @@
 #ifndef VECTOR_TESTS_ITERATOR_TYPES_H
 #define VECTOR_TESTS_ITERATOR_TYPES_H
 
-#include <Vector.h>
+#include <vector.hpp>
 #include <vector>
 #include <iostream>
 

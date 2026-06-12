@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <Vector.h>
+#include <vector.hpp>
 #include <vector>
 #include <helpers/vector_eq.h>
 

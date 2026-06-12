@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Vector.h"
+#include "vector.hpp"
 
 TEST(ElementAccessUnitTests, OperatorIndexValid) {
     Vector<int> v{10, 20, 30};
