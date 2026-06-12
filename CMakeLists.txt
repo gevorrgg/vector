@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(Vector LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(Vector INTERFACE
@@ -13,7 +13,7 @@ target_include_directories(Vector INTERFACE
     $<INSTALL_INTERFACE:include>
 )
 
-target_compile_features(Vector INTERFACE cxx_std_23)
+target_compile_features(Vector INTERFACE cxx_std_20)
 
 install(DIRECTORY include/
     DESTINATION include
