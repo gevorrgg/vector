@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(Vector INTERFACE
-        include/Vector.h
+        include/vector.hpp
 )
 
 target_include_directories(Vector INTERFACE
