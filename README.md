@@ -48,6 +48,29 @@ cmake -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build
 ```
 
+### Installing
+
+The tests find the library via CMake's `find_package`, so you must install it before building the tests:
+
+```bash
+cmake --install build
+```
+
+By default this installs to `/usr/local`. To install to a custom prefix instead:
+
+```bash
+cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/your/prefix
+cmake --build build
+cmake --install build
+```
+
+Then point the tests at it when configuring:
+
+```bash
+cmake -B build/tests -S tests -DCMAKE_PREFIX_PATH=/your/prefix
+cmake --build build/tests
+```
+
 ### Running Tests
 
 ```bash
@@ -133,6 +156,25 @@ crbegin() / crend()       // const_reverse_iterator
 ```cpp
 operator==(const Vector&)
 operator!=(const Vector&)
+```
+
+## Example
+
+```cpp
+#include "vector.hpp"
+#include <iostream>
+
+int main() {
+    Vector<int> v;
+
+    v.push_back(10);
+    v.push_back(20);
+    v.emplace_back(30);
+
+    for (const auto& x : v) {
+        std::cout << x << "\n";
+    }
+}
 ```
 
 ## Exception Safety
