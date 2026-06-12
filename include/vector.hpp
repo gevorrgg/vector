@@ -2,14 +2,14 @@
 // Created by user on 11/21/2025.
 //
 
-#ifndef VECTOR_VECTOR_H
-#define VECTOR_VECTOR_H
+#ifndef VECTOR_VECTOR_HPP
+#define VECTOR_VECTOR_HPP
 
 #include <algorithm>
 #include <stdexcept>
 #include <memory>
 #include <iterator>
-#include "vector_memory.h"
+#include "memory.hpp"
 #include <cassert>
 
 template<
