@@ -4,6 +4,20 @@ project(vector_tests)
 set(CMAKE_CXX_STANDARD 20)
 include(CTest)
 
+find_program(MEMORYCHECK_COMMAND valgrind)
+
+if(MEMORYCHECK_COMMAND)
+    set(MEMORYCHECK_COMMAND_OPTIONS
+        "--leak-check=full
+         --show-leak-kinds=all
+         --track-origins=yes
+         --error-exitcode=1
+         --quiet"
+    )
+
+    set(MEMORYCHECK_SUPPRESSIONS_FILE "")
+endif()
+
 include(FetchContent)
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
